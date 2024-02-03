@@ -1,0 +1,29 @@
+{
+    "manifest_version": 3,
+    "name": "NewYork Times And Wired Bypass",
+    "description": "",
+    "version": "1.0",
+    "action": {
+      "default_popup": "index.html"
+    },
+    "content_scripts": [
+        {
+          "js": ["nytimes.js"],
+          "matches": ["https://www.nytimes.com/*"],
+          "run_at": "document_start"
+        },
+        {
+            "js": ["wired.js"],
+            "matches": ["https://www.wired.com/*"],
+            "run_at": "document_start"
+        }
+      ],
+    "permissions": [
+        "tabs",
+        "activeTab",
+        "debugger"
+    ],
+    "background": {
+        "service_worker": "sw.js"
+    }
+  }
